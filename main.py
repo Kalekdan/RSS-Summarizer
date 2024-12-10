@@ -33,7 +33,7 @@ def job():
     print("Completed RSS summarization.")
 
 
-schedule.every().day.at("00:00").do(job)
+schedule.every().day.at("06:00").do(job)
 # schedule.every().minute.at(":17").do(job)
 
 # job()
