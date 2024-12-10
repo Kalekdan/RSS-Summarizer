@@ -24,7 +24,7 @@ def summarize(text):
     )
     summary = response.choices[0].message.content.strip()
     # Create the text file path at the root of the project
-    text_file_path = Path(__file__).resolve().parent.parent  / f"outputs/{today()}_summary.txt"
+    text_file_path = Path("/mnt/media-nfs-rss/Podcasts") / f"{today()}_summary.txt"
     # Save the text summary to the text file
     with open(text_file_path, 'w') as file:
         file.write(summary)
@@ -33,7 +33,7 @@ def summarize(text):
 
 
 def tts(text):
-    speech_file_path = Path(__file__).resolve().parent.parent / f"outputs/{today()}_tts.mp3"
+    speech_file_path = Path("/mnt/media-nfs-rss/Podcasts") / f"{today()}_tts.mp3"
     response = openai.audio.speech.create(
         model="tts-1",
         voice="alloy",
