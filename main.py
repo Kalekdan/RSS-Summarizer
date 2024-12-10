@@ -6,7 +6,8 @@ import utils.llm
 feeds = [
     {'name': 'Morning brew RSS feed', 'url': 'https://feeds.megaphone.fm/MOBI8777994188', 'category': 'Business'},
     {'name': 'BBC UK News RSS feed', 'url': 'https://feeds.bbci.co.uk/news/uk/rss.xml', 'category': 'UK'},
-    {'name': 'Marketwatch Feed', 'url': 'https://feeds.content.dowjones.io/public/rss/mw_topstories', 'category': 'Finance'},
+    {'name': 'Marketwatch Feed', 'url': 'https://feeds.content.dowjones.io/public/rss/mw_topstories',
+     'category': 'Finance'},
 ]
 
 
@@ -26,16 +27,17 @@ def job():
     summary = utils.llm.summarize(str(all_entries))
 
     # Convert the summary to audio
-    # print("Generating TTS output...")
-    # utils.llm.tts(summary)
+    print("Generating TTS output...")
+    utils.llm.tts(summary)
 
     print("Completed RSS summarization.")
+
 
 schedule.every().day.at("00:00").do(job)
 # schedule.every().minute.at(":17").do(job)
 
-job()
+# job()
 
-while False:
+while True:
     schedule.run_pending()
     time.sleep(300)
