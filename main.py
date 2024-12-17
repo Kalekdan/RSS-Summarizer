@@ -8,6 +8,7 @@ feeds = [
     {'name': 'BBC UK News RSS feed', 'url': 'https://feeds.bbci.co.uk/news/uk/rss.xml', 'category': 'UK'},
     {'name': 'Marketwatch Feed', 'url': 'https://feeds.content.dowjones.io/public/rss/mw_topstories',
      'category': 'Finance'},
+    {'name': 'Pharma Times Feed', 'url': 'https://pharmatimes.com/feed/', 'category': 'Pharma'},
 ]
 
 
@@ -36,7 +37,7 @@ def job():
 schedule.every().day.at("06:00").do(job)
 # schedule.every().minute.at(":17").do(job)
 
-# job()
+job()
 
 while True:
     schedule.run_pending()
